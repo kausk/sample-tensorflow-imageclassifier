@@ -17,6 +17,7 @@
 package com.example.androidthings.imageclassifier;
 
 import android.os.Build;
+import android.os.SystemClock;
 
 import com.google.android.things.pio.PeripheralManagerService;
 
@@ -31,7 +32,7 @@ public class BoardDefaults {
     private static final String DEVICE_IMX6UL_PICO = "imx6ul_pico";
     private static final String DEVICE_IMX6UL_VVDN = "imx6ul_iopb";
     private static final String DEVICE_IMX7D_PICO = "imx7d_pico";
-    private static String sBoardVariant = "";
+    private static String sBoardVariant = DEVICE_IMX7D_PICO;
 
     /**
      * Return the GPIO pin that the LED is connected on.
@@ -39,6 +40,8 @@ public class BoardDefaults {
      * that turns on when the GPIO pin is HIGH, and off when low.
      */
     public static String getGPIOForLED() {
+        System.out.println("Board Type");
+        System.out.println(getBoardVariant());
         switch (getBoardVariant()) {
             case DEVICE_EDISON_ARDUINO:
                 return "IO13";
